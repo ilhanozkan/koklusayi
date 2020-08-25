@@ -1,3 +1,3 @@
 # koklusayi
 
-#Köklü Sayının Yaklaşık Değeri =
+# Köklü Sayının Yaklaşık Değeri =
