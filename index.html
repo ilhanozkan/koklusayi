@@ -1,1 +1,21 @@
----> Köklü Sayıların Yaklaşık Değerini Bul <---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Karekökünü Kurut</title>
+	</head>
+<body>
+<h2>Karekökünü Bulmak İstediğin Sayıyı Gir</h2>
+<p>Değeri görmek için butona tıkla.</p>
+<input id="deger" type="text">
+<input type="button" onclick="buton()" value="Bana Tıkla :}">
+<p id="yeni_deger"></p>
+
+<script>
+	  
+    function buton() {
+   	 	var deger=document.getElementById("deger").value; 
+        document.getElementById("yeni_deger").innerHTML = Math.sqrt(deger);
+    }
+</script>
+</body>
+</html>
