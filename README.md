@@ -1,4 +1,4 @@
 # koklusayi
 
-◄ Web Site koklusayi.netlify.app
-◄ Köklü Sayının Değerini Bul
+◄ Karekök Hesapla <br>
+◄ Web Site: https://koklusayi.netlify.app/
