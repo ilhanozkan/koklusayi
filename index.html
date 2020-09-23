@@ -1,21 +1,271 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Karekökünü Kurut</title>
-	</head>
-<body>
-<h2>Karekökünü Bulmak İstediğin Sayıyı Gir</h2>
-<p>Değeri görmek için butona tıkla.</p>
-<input id="deger" type="text">
-<input type="button" onclick="buton()" value="Bana Tıkla :}">
-<p id="yeni_deger"></p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,700;1,700&family=Epilogue:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  <style>
 
-<script>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section{
+      width: 100%;
+      height: 100vh;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    section .background-div{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(img/background.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container:hover .background-div{
+      filter: blur(10px);
+    }
+
+    body{
+      background-attachment: fixed;
+    }
+ 
+    .container{
+      position: relative;
+      top: 70px;
+      margin:0px auto;
+      width: 500px;
+      /* background-color:rgb(96, 213, 255); */
+      height: 550px
+    }
+
+    #header{
+      position: relative;
+      left: 16%;
+      padding-top: 20px;
+      margin:0 auto;
+      margin-bottom: 26px;
+      margin-left: -10px;
+      cursor: pointer;
+    }
+
+    #header:hover ~ body{
+      filter: blur(10px);
+    }
+
+    #title{
+      margin-left: -40px;
+      font-size: 45px;
+      color: white;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      display: inline-block;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px 2px rgba(0,0,0,.15);
+    }
+
+    #title-div{
+      position:absolute;
+      display: inline-block;
+      width: 200px;
+    }
+
+    #logo {
+      width: 65px;
+      height: 65px;
+      filter: invert(100);
+      margin-left: 18px;
+    }
+
+    #logo-div{
+      margin-left: 10px;
+      margin-top: -15px;
+      display: inline-block;
+    }
+
+    /* Middle Box */
+
+    .box{
+      margin: 12px auto;
+      padding: 20px;
+    }
+
+    .box-button{
+      margin: 2px auto;
+      padding-left: 20px;
+    }
+
+    #result-description{
+      text-align: center;
+      margin-top: -35px;
+      color: white;
+      font-family: 'Epilogue', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+      cursor: pointer;
+    }
+
+    #result-box{
+      margin-top: 40px;
+      background-image: url(img/box-bg.png);
+      background-position: center;
+      width: 460px;
+      height: 280px;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px 2px rgba(0,0,0,.15);
+    }
+
+    #result-box:hover{
+      transition: box-shadow 300ms;
+      box-shadow: 0 2px 8px 4px rgba(0,0,0,.20);
+    }
+
+    #result-div{
+      width: 400px;
+      height: 180px;
+      /* background-color: lightcoral; */
+      position: relative;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 144px;
+      text-decoration: underline;
+      color: white;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-shadow: 1px 2px 4px rgba(0,0,0,.3);
+    }
+
+    #input-number{
+      padding-left: 60px;
+      margin: 2px auto;
+    }
+    
+    #input{
+      margin-top: -23px;
+      width: 300px;
+      height: 65px;
+      padding: 20px 80px;
+      border: none;
+      border-radius: 50px;
+      background-color: white;
+      box-shadow: 0 2px 5px 1px rgba(0,0,0,.1);
+    }
+
+    #input:hover{
+      transition: all 300ms;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    #input[placeholder]{
+      font-size: 32px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 3px;
+      font-weight: normal;
+      text-align: center;
+      outline: none;
+    }
+    
+    /* Last Box */
+  
+    #button{
+      margin: 0;
+      border: none;
+      height: 80px;
+      width: 460px;
+      padding: 0px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 6px;
+      font-size: 50px;
+      font-weight: 500;
+      text-align: center;
+      color: white;
+      background-image: url(img/box-bg.png);
+      background-position: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+      box-shadow: 0 2px 8px 2px rgba(0,0,0,.15);
+    }
+
+    #button:hover{
+      transition: box-shadow 300ms;
+      transition: color ease-in 1.5s;
+      cursor: pointer;
+      color: rgba(157, 255, 209, 0.8);
+      box-shadow: 0 2px 8px 4px rgba(0,0,0,.20);
+      background-image: url(img/box-bg.png);
+    }
+
+    #button:focus{
+      background-image: url(img/box-bg.png);
+      transition: all 300ms;
+      transition: filter ease-in-out 900ms;
+      filter: hue-rotate(720deg);
+      color: white;
+      outline: none; !important
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <section>
+    <div class="background-div">
+
+  <div class="container">
+    <div id="header">
+      <div id="logo-div">
+        <img id="logo" src="img/logo.png" alt="">
+      </div>
+      <div id="title-div">
+        <h1 id="title">karekök hesaplayıcı</h1>
+      </div>
+    </div>
+    <div id="result-box" class="box">
+      <div id="result-div" class="box">
+        <p id="result-description">Sayının Karekökü</p>
+        <p id="result">0</p>
+      </div>
+      <div id="input-number">
+        <input id="input" type="text" placeholder="SAYI GİR !">
+      </div>
+    </div>
+
+    <div id="sqrt-calculate" class="box-button">
+      <input id="button" type="button" onclick="button()" value="HESAPLA">
+    </div>
+  </div>
+
+  
+</div>
+</section>
+
+  <!-- JS -->
+  <script>
 	  
-    function buton() {
-   	 	var deger=document.getElementById("deger").value; 
-        document.getElementById("yeni_deger").innerHTML = Math.sqrt(deger);
+    function button() {
+   	 	var input=document.getElementById("input").value; 
+        document.getElementById("result").innerHTML = Math.sqrt(input);
     }
 </script>
+
+
 </body>
 </html>
